@@ -1,0 +1,51 @@
+Django supports the MVC pattern. 
+Model-View-Controller (MVC) pattern
+Django also have the Model-View-Template (MVT) pattern.
+The Model-View-Template (MVT) is slightly different from MVC.
+the main difference between the two patterns is that Django itself takes care of the Controller part 
+(Software Code that controls the interactions between the Model and View), leaving us with the template.
+The template is a HTML file mixed with Django Template Language (DTL).
+Django is written in 100% pure Python code.
+
+Django supports several major database engines:-
+    *  MySQL 
+    *  PostgreSQL 
+    *  SQLite 3 
+    *  Oracle 
+    *  MongoDb 
+    *  GoogleAppEngine Datastore 
+
+
+ Creating Project:-
+ To create a project Whether we are on Windows or Linux, just get a terminal or a cmd prompt and navigate to the place you want your project to be created
+
+  After craeting project folder as Myproject we get the following structure:-
+ 
+  Myproject/
+    manage.py
+    myproject/
+      __init__.py
+      settings.py
+      urls.py
+      wsgi.py
+
+
+The Project Structure
+The “myproject” folder is just project container, it actually contains two elements −
+
+manage.py − This file is kind of project local django-admin for interacting with project via command line.
+              To get a full list of command accessible via manage.py we can use the code −
+
+                 $ python manage.py help
+
+The “myproject” subfolder − This folder is the actual python package of project.
+     
+ It contains four files −
+
+    __init__.py − Just for python, treat this folder as package.
+
+    settings.py − As the name indicates,  project settings.
+
+   urls.py − All links of  project and the function to call. A kind of ToC of project.
+
+    wsgi.py − If we need to deploy our project over WSGI.
