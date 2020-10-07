@@ -1,0 +1,35 @@
+A project is a sum of many applications. 
+
+Every application has an objective and can be reused into another project.
+
+Create an Application:-
+Following command will create application:-
+            $ python manage.py startapp myapp
+
+myapp is application name
+
+following are the folders in myapp:-
+   __init__.py
+   admin.py
+   models.py
+   tests.py
+   views.py
+
+__init__.py − Just to make sure python handles this folder as a package.
+admin.py − This file helps you make the app modifiable in the admin interface.
+models.py − This is where all the application models are stored.
+tests.py − This is where your unit tests are.
+ssviews.py − This is where your application views are.
+
+At this stage we have "myapp" application, now we need to register it with our Django project "myproject". To do so, update INSTALLED_APPS tuple in the settings.py file of your project (adding app name)−
+INSTALLED_APPS = (
+   'django.contrib.admin',
+   'django.contrib.auth',
+   'django.contrib.contenttypes',
+   'django.contrib.sessions',
+   'django.contrib.messages',
+   'django.contrib.staticfiles',
+   'myapp',)
+
+Django provides a ready-to-use user interface for administrative activities.
+
