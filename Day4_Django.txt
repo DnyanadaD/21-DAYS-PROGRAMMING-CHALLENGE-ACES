@@ -1,0 +1,32 @@
+We know how an admin interface is important for a web project. Django automatically generates admin UI based on  project models.
+
+Starting the Admin Interface:-
+The Admin interface depends on the django.countrib module.
+To have it working we need to make sure some modules are imported in the INSTALLED_APPS and MIDDLEWARE_CLASSES tuples of the myproject/settings.py file.
+
+For INSTALLED_APPS we should have −
+
+INSTALLED_APPS = (
+   'django.contrib.admin',
+   'django.contrib.auth',
+   'django.contrib.contenttypes',
+   'django.contrib.sessions',
+   'django.contrib.messages',
+   'django.contrib.staticfiles',
+   'myapp',
+)
+
+
+For MIDDLEWARE_CLASSES −
+MIDDLEWARE_CLASSES = (
+   'django.contrib.sessions.middleware.SessionMiddleware',
+   'django.middleware.common.CommonMiddleware',
+   'django.middleware.csrf.CsrfViewMiddleware',
+   'django.contrib.auth.middleware.AuthenticationMiddleware',
+   'django.contrib.messages.middleware.MessageMiddleware',
+   'django.middleware.clickjacking.XFrameOptionsMiddleware',
+)
+
+Before launching server, to access Admin Interface, we need to initiate the database by following command −
+
+$ python manage.py migrate
