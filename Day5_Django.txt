@@ -1,0 +1,25 @@
+syncdb will create necessary tables or collections depending on db type,necessary for the admin interface to run. 
+Even if wedon't have a superuser,we will be prompted to create one.
+
+If we already have a superuser or have forgotten it still we can always create one using the following code −
+                   $ python manage.py createsuperuser
+
+
+Now to start the Admin Interface, 
+we need to make sure we have configured a URL for our admin interface. 
+Open the myproject/url.py and you should have something like −
+
+      from django.conf.urls import patterns, include, url
+      from django.contrib import admin
+      admin.autodiscover()
+      urlpatterns = patterns('',
+      # Examples:
+      # url(r'^$', 'myproject.views.home', name = 'home'),
+      # url(r'^blog/', include('blog.urls')),
+      url(r'^admin/', include(admin.site.urls)),
+      )
+
+To run the server:-
+$ python manage.py runserver
+
+And sour admin interface is accessible at: http://****************/admin/
