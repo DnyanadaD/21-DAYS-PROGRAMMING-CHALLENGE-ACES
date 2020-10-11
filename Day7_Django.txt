@@ -1,0 +1,48 @@
+URL Mapping :-
+Django has his own way for URL mapping and it's done by editing our project url.py file (myproject/url.py). 
+
+The url.py file looks like −
+
+from django.conf.urls import patterns, include, url
+from django.contrib import admin
+admin.autodiscover()
+urlpatterns = patterns('',
+   #Examples
+   #url(r'^$', 'myproject.view.home', name = 'home'),
+   #url(r'^blog/', include('blog.urls')),
+
+   url(r'^admin', include(admin.site.urls)),
+)
+
+When a user makes a request for a page on our web app, 
+Django controller takes over to look for the corresponding view via the url.py file, 
+and then return the HTML response or a 404 not found error, if not found. 
+In url.py, the most important thing is the "urlpatterns" tuple.
+It’s where you define the mapping between URLs and views. 
+
+A mapping is a tuple in URL patterns like −
+
+from django.conf.urls import patterns, include, url
+from django.contrib import admin
+admin.autodiscover()
+
+urlpatterns = patterns('',
+   #Examples
+   #url(r'^$', 'myproject.view.home', name = 'home'),
+   #url(r'^blog/', include('blog.urls')),
+
+   url(r'^admin', include(admin.site.urls)),
+   url(r'^hello/', 'myapp.views.hello', name = 'hello'),
+)
+
+The marked line maps the URL "/home" to the hello view created in myapp/view.py file.
+mapping is composed of three elements −
+
+The pattern − A regexp matching the URL we want to be resolved and map. 
+              Everything that can work with the python 're' module is eligible for the pattern 
+              (useful when we want to pass parameters via url).
+
+The python path to the view − Same as when you are importing a module.
+
+The name − In order to perform URL reversing, we’ll need to use named URL patterns as done in the examples above. 
+           Once done, just start the server to access your view via :http://127.0.0.1/hello
