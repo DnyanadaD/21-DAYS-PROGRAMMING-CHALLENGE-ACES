@@ -1,0 +1,92 @@
+Filters:-
+It helps us to modify variables at display time. 
+Filters structure looks like the following: 
+                                     {{var|filters}}.
+
+examples −
+
+    {{string|truncatewords:80}} − This filter will truncate the string, so you will see only the first 80 words.
+
+    {{string|lower}} − Converts the string to lowercase.
+
+    {{string|escape|linebreaks}} − Escapes string contents, then converts line breaks to tags.
+
+We can also set the default for a variable.
+
+Tags:-
+Tags lets perform the following operations: 
+         if condition, for loop, template inheritance and more.
+-------------------------------------------------------------------------------
+Tag if
+Just like in Python we can use if, else and elif in our template −
+
+<html>
+   <body>
+   
+      Hello World!!!<p>Today is {{today}}</p>
+      We are
+      {% if today.day == 1 %}
+      
+      the first day of month.
+      {% elif today.day == 30 %}
+      
+      the last day of month.
+      {% else %}
+      
+      I don't know.
+      {%endif%}
+      
+   </body>
+</html>
+
+-----------------------------------------------------------------------------
+
+Tag for
+Just like 'if', we have the 'for' tag, that works exactly like in Python. 
+Let's change our hello view to transmit a list to our template −
+
+def hello(request):
+   today = datetime.datetime.now().date()
+   
+   daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+   return render(request, "hello.html", {"today" : today, "days_of_week" : daysOfWeek})
+
+The template to display that list using {{ for }} −
+<html>
+   <body>
+      
+      Hello World!!!<p>Today is {{today}}</p>
+      We are
+      {% if today.day == 1 %}
+      
+      the first day of month.
+      {% elif today.day == 30 %}
+      
+      the last day of month.
+      {% else %}
+      
+      I don't know.
+      {%endif%}
+      
+      <p>
+         {% for day in days_of_week %}
+         {{day}}
+      </p>
+		
+      {% endfor %}
+      
+   </body>
+</html>
+
+And we should get something like −
+
+Hello World!!!
+Today is Oct. 13, 2020
+We are I don't know.
+Mon
+Tue
+Wed
+Thu
+Fri
+Sat
+Sun
