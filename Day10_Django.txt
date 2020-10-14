@@ -1,0 +1,68 @@
+Block and Extend Tags:-
+A template system cannot be complete without template inheritance. 
+Meaning when we are designing your templates, 
+we should have a main template with holes that the child's template will fill according to his own need, 
+like a page might need a special css for the selected tab.
+
+Let’s change the hello.html template to inherit from a main_template.html.
+-----------------------------------------------------------
+main_template.html
+
+<html>
+   <head>
+      
+      <title>
+         {% block title %}Page Title{% endblock %}
+      </title>
+      
+   </head>
+	
+   <body>
+   
+      {% block content %}
+         Body content
+      {% endblock %}
+      
+   </body>
+</html>
+
+
+----------------------------------------------------------
+hello.html
+
+{% extends "main_template.html" %}
+{% block title %}My Hello Page{% endblock %}
+{% block content %}
+
+Hello World!!!<p>Today is {{today}}</p>
+We are
+{% if today.day == 1 %}
+
+the first day of month.
+{% elif today.day == 30 %}
+
+the last day of month.
+{% else %}
+
+I don't know.
+{%endif%}
+
+<p>
+   {% for day in days_of_week %}
+   {{day}}
+</p>
+
+{% endfor %}
+{% endblock %}
+
+-----------------------------------------------------------
+In the above example, on calling /myapp/hello we will still get the same result as before 
+but now we rely on extends and block to refactor our code −
+
+In the main_template.html we define blocks using the tag block. 
+The title block will contain the page title and the content block will have the page main content. 
+In home.html we use extends to inherit from the main_template.html then we fill the block define above (content and title).
+
+Comment Tag:-
+The comment tag helps to define comments into templates, not HTML comments, they won’t appear in HTML page. 
+It can be useful for documentation or just commenting a line of code.
