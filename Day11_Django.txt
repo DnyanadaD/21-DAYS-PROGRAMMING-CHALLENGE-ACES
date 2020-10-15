@@ -1,0 +1,35 @@
+Models:-
+
+A model is the single, definitive source of information about our data. 
+It contains the essential fields and behaviors of the data we are storing. 
+Generally, each model maps to a single database table.
+
+The basics:-
+
+Each model is a Python class that subclasses django.db.models.Model.
+Each attribute of the model represents a database field.
+With all of this, Django gives us an automatically-generated database-access API.
+
+Example:-
+This example model defines a Person, which has a first_name and last_name:
+--------------------------------------------------------------------------------
+from django.db import models
+
+class Person(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+--------------------------------------------------------------------------------
+first_name and last_name are fields of the model. 
+Each field is specified as a class attribute, and each attribute maps to a database column.
+
+The above Person model would create a database table like this:
+---------------------------------------------------------------
+CREATE TABLE myapp_person (
+    "id" serial NOT NULL PRIMARY KEY,
+    "first_name" varchar(30) NOT NULL,
+    "last_name" varchar(30) NOT NULL
+);
+---------------------------------------------------------------
+
+The CREATE TABLE SQL in this example is formatted using PostgreSQL syntax, 
+but it’s worth noting Django uses SQL tailored to the database backend specified in our settings file.
