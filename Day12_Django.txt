@@ -1,0 +1,31 @@
+Fields:-
+The most important part of a model and the only required part of a model is the list of database fields it defines. 
+Fields are specified by class attributes.
+Be careful not to choose field names that conflict with the models API like clean, save, or delete.
+
+Example:-
+
+from django.db import models
+
+class Musician(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    instrument = models.CharField(max_length=100)
+
+class Album(models.Model):
+    artist = models.ForeignKey(Musician, on_delete=models.CASCADE)
+    name = models.CharField(max_length=100)
+    release_date = models.DateField()
+    num_stars = models.IntegerField()
+---------------------------------------------------------------------------
+
+Field types:-
+Each field in model should be an instance of the appropriate Field class. 
+
+Django uses the field class types to determine a few things:-
+
+The column type, which tells the database what kind of data to store (e.g. INTEGER, VARCHAR, TEXT).
+The default HTML widget to use when rendering a form field (e.g. <input type="text">, <select>).
+The minimal validation requirements, used in Django’s admin and in automatically-generated forms.
+Django ships with dozens of built-in field types;we can find the complete list in the model field reference. 
+We can easily write our own fields if Django’s built-in ones don’t do the trick; see Writing custom model fields.
