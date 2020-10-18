@@ -1,0 +1,18 @@
+Relationship Fields:-
+
+Django also defines a set of fields that represent relations.
+________________________________________________________________________________________________________________________
+FIELD NAME	 | DESCRIPTION
+________________________________________________________________________________________________________________________
+                 |
+ForeignKey	 | A many-to-one relationship. 
+                 | Requires two positional arguments: the class to which the model is related and the on_delete option.
+________________________________________________________________________________________________________________________
+ManyToManyField	 | A many-to-many relationship. 
+                 | Requires a positional argument: the class to which the model is related, 
+                 | which works exactly the same as it does for ForeignKey, including recursive and lazy relationships.
+________________________________________________________________________________________________________________________
+OneToOneField	 | A one-to-one relationship. 
+                 | Conceptually, this is similar to a ForeignKey with unique=True, 
+                 | but the “reverse” side of the relation will directly return a single object.
+________________________________________________________________________________________________________________________
