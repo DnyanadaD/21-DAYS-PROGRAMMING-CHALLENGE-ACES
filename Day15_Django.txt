@@ -1,0 +1,47 @@
+Django Forms:-
+When we creates a Form class, the most important part is defining the fields of the form.
+Forms are basically used for taking input from the user in some manner and using that information for logical operations on databases. 
+
+For example, 
+Registering a user by taking input as his name, email, password, etc.
+
+Django maps the fields defined in Django forms into HTML input fields. 
+
+Django handles three distinct parts of the work involved in forms:-
+ *Preparing and restructuring data to make it ready for rendering
+ *Creating HTML forms for the data
+ *Receiving and processing submitted forms and data from the client
+
+All types of work done by Django forms can be done with advanced HTML stuff, 
+but Django makes it easier and efficient especially the validation part.
+
+Syntax :-
+Django Fields work like Django Model Fields and have the syntax :-
+ field_name = forms.FieldType(**options) 
+-------------------------------------------
+
+Example –
+
+from django import forms 
+  
+# creating a form 
+class GeeksForm(forms.Form): 
+    title = forms.CharField() 
+    description = forms.CharField()
+__________________________________________________________________________
+Let's create the form
+
+# import the standard Django Forms 
+# from built-in library 
+from django import forms  
+    
+# creating a form   
+class InputForm(forms.Form):  
+    
+    first_name = forms.CharField(max_length = 200)  
+    last_name = forms.CharField(max_length = 200)  
+    roll_number = forms.IntegerField(  
+                     help_text = "Enter 6 digit roll number"
+                     )  
+    password = forms.CharField(widget = forms.PasswordInput())
+ 
