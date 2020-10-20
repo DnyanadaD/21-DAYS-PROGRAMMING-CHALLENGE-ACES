@@ -1,0 +1,30 @@
+Render Django Forms:-
+-------------------
+
+Django form fields have several built-in methods to ease the work of the developer but 
+sometimes one needs to implement things manually for customizing User Interface(UI). 
+
+A form comes with 3 in-built methods that can be used to render Django form fields.
+     -> {{ form.as_table }} will render them as table cells wrapped in <tr> tags
+     -> {{ form.as_p }} will render them wrapped in <p> tags
+     -> {{ form.as_ul }} will render them wrapped in <li> tags
+_______________________________________________________________________________________
+
+from django.shortcuts import render 
+from .forms import InputForm 
+  
+# Creating views 
+def home_view(request): 
+    context ={} 
+    context['form']= InputForm() 
+    return render(request, "home.html", context) 
+-----------------------------------------------------------------------------------------
+In view we needs to just create an instance of the form class created above in forms.py.
+Then we have to edit the .html form
+
+<form action = "" method = "post"> 
+    {% csrf_token %} 
+    {{form }} 
+    <input type="submit" value=Submit"> 
+</form> 
+-------------------------------------------------------------------------------------------
