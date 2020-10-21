@@ -1,0 +1,38 @@
+The most important part of a form and the only required part is the list of fields it defines.
+
+Core Field Arguments:-
+Core Field arguments are the arguments given to each field 
+for applying some constraint or imparting a particular characteristic to a particular Field.
+ 
+For example, 
+Adding an argument required = False to CharField will enable it to be left blank by the user. 
+Each Field class constructor takes at least these arguments. Some Field classes take additional, 
+field-specific arguments, but the following should always be accepted:
+____________________________________________________________________________________________________________________________
+FIELD OPTIONS	| DESCRIPTION
+____________________________________________________________________________________________________________________________
+required	|By default, each Field class assumes the value is required, 
+                |so to make it not required you need to set required=False
+____________________________________________________________________________________________________________________________
+label	        | The label argument lets you specify the “human-friendly” label for this field. 
+                |This is used when the Field is displayed in a Form.
+____________________________________________________________________________________________________________________________
+label_suffix	|The label_suffix argument lets you override the form’s label_suffix on a per-field basis.
+____________________________________________________________________________________________________________________________
+widget	        |The widget argument lets you specify a Widget class to use when rendering this Field.  
+                |See Widgets for more information.
+____________________________________________________________________________________________________________________________
+help_text	|The help_text argument lets you specify descriptive text for this Field. 
+                |If you provide help_text, it will be displayed next to the Field when the 
+                |Field is rendered by one of the convenience Form methods.
+____________________________________________________________________________________________________________________________
+error_messages	|The error_messages argument lets you override the default messages that the field will raise. 
+                |Pass in a dictionary with keys matching the error messages you want to override.
+____________________________________________________________________________________________________________________________
+validators	|The validators argument lets you provide a list of validation functions for this field.
+____________________________________________________________________________________________________________________________
+localize	|The localize argument enables the localization of form data input, as well as the rendered output.
+____________________________________________________________________________________________________________________________
+disabled.	|The disabled boolean argument, when set to True, disables a form field using the disabled HTML 
+                |attribute so that it won’t be editable by users.
+____________________________________________________________________________________________________________________________
