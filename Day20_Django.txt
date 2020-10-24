@@ -1,0 +1,60 @@
+Django Exceptions:-
+An exception is an abnormal event that leads to program failure. 
+To deal with this situation, Django uses its own exception classes and supports all core Python exceptions as well.
+Django core exceptions classes are defined in django.core.exceptions module. 
+
+Django Exception Classes:-
+____________________________________________________________________________________________________________________
+Exception	          Description
+____________________________________________________________________________________________________________________
+AppRegistryNotReady   	=  It is raised when attempting to use models before the app loading process.
+ObjectDoesNotExist	=  The base class for DoesNotExist exceptions.
+EmptyResultSet	        =  If a query does not return any result, this exception is raised.
+FieldDoesNotExist	=  It raises when the requested field does not exist.
+MultipleObjectsReturned	=  This exception is raised by a query if only one object is expected, 
+                           but multiple objects are returned.
+SuspiciousOperation	=  This exception is raised when a user has performed an operation that should be considered 
+                           suspicious from a security perspective.
+PermissionDenied	=  It is raised when a user does not have permission to perform the action requested.
+ViewDoesNotExist	=  It is raised by django.urls when a requested view does not exist.
+MiddlewareNotUsed	=  It is raised when a middleware is not used in the server configuration.
+ImproperlyConfigured	=  The ImproperlyConfigured exception is raised when Django is somehow improperly configured.
+FieldError	        =  It is raised when there is a problem with a model field.
+ValidationError	        =  It is raised when data validation fails form or model field validation.
+______________________________________________________________________________________________________________________
+
+Django URL Resolver Exceptions:-
+These exceptions are defined in django.urls module.
+______________________________________________________________________________________________________________________
+Exception	        Description
+______________________________________________________________________________________________________________________
+Resolver404       =	This exception raised when the path passed to resolve() function does not map to a view.
+NoReverseMatch    =	It is raised when a matching URL in your URLconf cannot be identified based on the 
+                        parameters supplied.
+______________________________________________________________________________________________________________________
+
+Django Database Exceptions:-
+The following exceptions are defined in django.db module.
+______________________________________________________________________________________________________________________
+Exception	  Description
+______________________________________________________________________________________________________________________
+DatabaseError   = It occurs when the database is not available.
+IntegrityError	= It occurs when an insertion query executes.
+DataError	= It raises when data related issues come into the database.
+______________________________________________________________________________________________________________________
+
+Django Http Exceptions:-
+The following exceptions are defined in django.http module.
+______________________________________________________________________________________________________________________
+Exception	          Description
+______________________________________________________________________________________________________________________
+UnreadablePostError   =	 It is raised when a user cancels an upload.
+______________________________________________________________________________________________________________________
+
+Django Transaction Exceptions:-
+The transaction exceptions are defined in django.db.transaction.
+______________________________________________________________________________________________________________________
+Exception	                Description
+______________________________________________________________________________________________________________________
+TransactionManagementError =	It is raised for any and all problems related to database transactions.
+______________________________________________________________________________________________________________________
